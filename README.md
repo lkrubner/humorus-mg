@@ -95,7 +95,9 @@ http://www.smashcompany.com/technology/running-java-as-a-service-daemon-on-a-lin
 
 
 
+*The name*
 
+MongoDB is a play on the word "humongous" so I wanted a name that started off sounding similar. However, this app is simple and lightweight, and delibrately limited, so I thought "humorous" would be a good name. However, I also wanted something that would be unique enough that people could find it via Goodle, so I settled on "humorus-mg". 
 
 
 
