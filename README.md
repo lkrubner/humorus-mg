@@ -1,7 +1,7 @@
 
 *Assumptions*
 
-This app assumes that you keep all of your data in MongoDB, stored in a single collection inside a single database. The schema.edn file specifies a "schema" in the sense that it specifies HTML forms, and those forms specify what keys will exist in your database. The system is extemely flexible: you can create any schema by changing the schema.edn file. As such, I believe this app could be used in a great variety of situations, for a great variety of companies.
+This app assumes that you keep all of your data in MongoDB, stored in a single collection inside a single database. The schema.edn file specifies a "schema" in the sense that it specifies HTML forms, and those forms will, almost accidentally, determine which keys will exist in your database. The system is extemely flexible: you can create any schema by changing the schema.edn file. As such, I believe this app could be used in a great variety of situations, for a great variety of companies.
 
 *Theory*
 
@@ -54,7 +54,7 @@ I posted a partial defense of MongoDB here:
 
 http://www.smashcompany.com/technology/why-i-use-mongodb
 
-What I suggested was that most early stage startups don't know what their schema will be, and they should not try to force the issue. I work with a lot of early stage companies, and the entrepreneurs I work have no idea what sets of data they will want to capture, or what the relationships will be among those sets of data. And I feel this app does a good job of allowing taking advantage of the flexibility that MongoDB affords. Simply change schema.edn and you've changed what sets of data you are capturing. 
+What I suggested was that most early stage startups don't know what their schema will be, and they should not try to force the issue. I work with a lot of early stage companies, and the entrepreneurs I work have no idea what sets of data they will want to capture, or what the relationships will be among those sets of data. And I feel this app does a good job of allowing taking advantage of the flexibility that MongoDB affords. Simply change schema.edn and you've changed what sets of data you are capturing. To whatever extent I end up consulting for other startups, I hope to be able to give them the gift of a flexible initial system that does not lock them to a strict model that can not possibly match whatever relationship-constraints they will eventually discover.
 
 
 *Setup*
