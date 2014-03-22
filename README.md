@@ -54,7 +54,7 @@ I posted a partial defense of MongoDB here:
 
 http://www.smashcompany.com/technology/why-i-use-mongodb
 
-What I suggested was that most early stage startups don't know what their schema will be, and they should not try to force the issue. I work with a lot of early stage companies, and the entrepreneurs I work have no idea what sets of data they will want to capture, or what the relationships will be among those sets of data. And I feel this app does a good job of allowing taking advantage of the flexibility that MongoDB affords. Simply change schema.edn and you've changed what sets of data you are capturing. To whatever extent I end up consulting for other startups, I hope to be able to give them the gift of a flexible initial system that does not lock them to a strict model that can not possibly match whatever relationship-constraints they will eventually discover.
+What I suggested was that most early stage startups don't know what their schema will be, and they should not try to force the issue. I work with a lot of early stage companies, and the entrepreneurs I work with have no idea what sets of data they will want to capture, or what the relationships will be among those sets of data. And I feel this app does a good job of allowing taking advantage of the flexibility that MongoDB affords. Simply change schema.edn and you've changed what sets of data you are capturing. To whatever extent I end up consulting for other startups, I hope to be able to give them the gift of a flexible initial system that does not lock them to a strict model that can not possibly match whatever relationship-constraints they will eventually discover.
 
 
 *Setup*
