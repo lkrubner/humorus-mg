@@ -41,7 +41,9 @@ https://github.com/lkrubner/tma_make_thumbnails
 
 6.) I hard-coded directory paths that I use on my MacBook Pro. Eventually this will get moved to a config file. 
 
-7.) I will eventually clean up this README. For now I am writing down ideas as fast as they occur to me.
+7.) Using Lamina, I hard-coded the use of 6 workers because I knew my server had 4 CPUs. I will fix this soon. 
+
+8.) I will eventually clean up this README. For now I am writing down ideas as fast as they occur to me.
 
 I'm sure there are many others. I am still somewhat new to Clojure, so this app reveals some ideas that I have only half grasped or half implemented (for instance, I've started using Lamina for async, but not well). 
 
