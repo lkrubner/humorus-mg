@@ -59,6 +59,16 @@ What I suggested was that most early stage startups don't know what their schema
 
 *Setup*
 
+Inside the resources/config directory, there must be a file called "credentials.edn" which should look like this:
+
+{
+
+ :db "some_db_name"
+ :username "some_username"
+ :password "some_password"
+
+}
+
 You will need to apply some indexes to MongoDB. For me, these were crucial:
 
 db.tma.ensureIndex( { "created-at":1, "user-item-name": 1 } );
