@@ -37,7 +37,7 @@ https://github.com/lkrubner/tma_make_thumbnails
 
 4.) tma-admin.server calls tma-admin.supervisor. I will reverse this soon. To a limited extent, the name "supervisor" was used in deference to Joe Armstrong's ideas about organizing code. http://www.erlang.org/download/armstrong_thesis_2003.pdf
 
-5.) tma-admin.controller/get-map-of-properties-for-this-one-field uses (reduce) but I could have simply used map in tma-admin.controller/is-this-field-important. I'll try to fix this soon. 
+5.) tma-admin.controller/get-map-of-properties-for-this-one-field uses (reduce) but I could have simply used (map) in tma-admin.controller/is-this-field-important. I'll try to fix this soon. 
 
 6.) I hard-coded directory paths that I use on my MacBook Pro. Eventually this will get moved to a config file. 
 
