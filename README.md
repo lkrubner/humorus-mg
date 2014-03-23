@@ -15,6 +15,10 @@ This app is enabled by other apps. For instance, this app will upload images but
 
 https://github.com/lkrubner/tma_make_thumbnails
 
+With some abuse of the term, you could almost regard this the "microservice" style:
+
+http://martinfowler.com/articles/microservices.html
+
 
 *Things that will never change about this app*
 
@@ -25,6 +29,8 @@ https://github.com/lkrubner/tma_make_thumbnails
 3.) This app supports one level of user, a root level "admin" that has the power to do anything. This app will never support multiple levels of users permissions. I feel strongly that if you want to support another level of user permissions, then you should create a new app. If, for instance, you wanted to create an "editor" who could edit pages but not delete anything, then you should create a new app where all the queries are adjusted to limit the powers of the "editor". Different apps for different levels. Don't try to stuff all that complexity into 1 app. 
 
 4.) This app does not support all CRUD operations. It supports C and R and D but not U. Partly inspired by Clojure itself, we will not ever support any form of "update in place". Most of the apps assoicated with TailorMadeAnswers.com can only do reads and inserts. Certainly, any normal user of the public site can only do reads and inserts. This app allows deletes, since it is the root level user, and sometimes (as when a password is posted to a public page) a document needs to be deleted. But there are never any updates, and there never will be any updates. 
+
+5.) All relationships between the data are handled by the app. If we were using a relational database we might establish foreign key relationships between different database tables, but we are using MongoDB. While MongoDB can support some associations between collections, we are obviously not going to do that. All relationships between different types are managed by our app.
 
 
 *There are several mistakes in this app*
@@ -43,7 +49,9 @@ https://github.com/lkrubner/tma_make_thumbnails
 
 7.) Using Lamina, I hard-coded the use of 6 workers because I knew my server had 4 CPUs. I will fix this soon. 
 
-8.) I will eventually clean up this README. For now I am writing down ideas as fast as they occur to me.
+8.) All child and parent relationships were hard-coded for TMA in tma-admin.monger/get-children-items and tma-admin.monger/get-parent-items. To generalize these functions for others, these functions will need to be replaced with a macro that can read from schema.edn at compile time. 
+
+9.) I will eventually clean up this README. For now I am writing down ideas as fast as they occur to me.
 
 I'm sure there are many others. I am still somewhat new to Clojure, so this app reveals some ideas that I have only half grasped or half implemented (for instance, I've started using Lamina for async, but not well). 
 
@@ -52,7 +60,7 @@ I'm sure there are many others. I am still somewhat new to Clojure, so this app 
 
 I posted a partial defense of MongoDB here:
 
-http://www.smashcompany.com/technology/why-i-use-mongodb
+http://www.smashcompany.com/technology/a-defense-of-mongodb
 
 What I suggested was that most early stage startups don't know what their schema will be, and they should not try to force the issue. I work with a lot of early stage companies, and the entrepreneurs I work with have no idea what sets of data they will want to capture, or what the relationships will be among those sets of data. And I feel this app does a good job of allowing you to take advantage of the flexibility that MongoDB affords. Simply change schema.edn and you've changed what sets of data you are capturing. To whatever extent I end up consulting for other startups, I hope to be able to give them the gift of a flexible initial system that does not lock them to a strict model that can not possibly match whatever relationship-constraints they will eventually discover.
 
@@ -76,6 +84,16 @@ db.tma.ensureIndex( { "created-at":1, "user-item-name": 1 } );
 db.tma.ensureIndex( { "item-name":1, "updated-at": 1 } );
 
 I will create more in the future, but without these the software did not run. Your needs may vary based on what your schema is, but these are fields that are assumed (and mostly created) by default. 
+
+Edit schema.edn to create whatever schema you want to use for your project. There are different types of documents, determined by the field "item-type". We use item-type to create an illusion similar to database tables. 3 fields are pretty much mandatory for every document:
+
+item-type
+
+item-name
+
+created-at
+
+Of course, MongoDB adds _id to everything. 
 
 Assuming you have Leiningen installed, you can build this app with: 
 
